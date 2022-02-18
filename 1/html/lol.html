@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сервисный центр Ремонт+</title>
+
+    <script language="Javascript">
+
+       // Все элементы
+       const elements = document.querySelectorAll('input[name="currency"]');
+       pool.query('SELECT * FROM users').then(function(data) {
+          const user = data[0]}
+       // Кол-во элементов
+       const len = elements.length;
+
+       for (let i = 0; i < len; i++)
+       {
+          elements[i].addEventListener('click', function() {
+          setNewPrice(this.value);
+          });
+       }
+
+       function setNewPrice(currency)
+       {
+          const elements = document.getElementsByClassName('price');
+          const len = elements.length;
+
+
+          for (let i = 0; i < len; i++)
+          {
+             const default_price = +elements[i].getAttribute('data-value');
+             let new_price = 0;
+             switch (currency)
+             {
+                case 'UAH': new_price = default_price * uah; break;
+                case 'USD': new_price = default_price * usd; break;
+                case 'RUB': new_price = default_price * rub; break;
+                default: new_price = default_price * rub; break;
+             }
+             elements[i].innerHTML = new_price;
+          }
+       }
+</script>
+</head>
+<body>
+   <div class="header">
+   <center>
+      <h1>Сервисный центр "Ремонт+"</h1>
+      <nav>
+         <a href="#about">О нас</a>
+         <a href="#table_of_price">Расценки</a>
+         <a href="#contacts">Контакты</a>
+      </nav>
+   </center>
+   </div>
+   <div class="main">
+
+   <center>
+      <div class="about">
+      <h2>О нас</h2>
+      <image src="about.png" class="img_about">
+      <p>Наш сервисный центр предоставляет обширный профессиональный спектр услуг, качественная и своевременная сдача работы, особый подход к клиенту и его технике.
+      Сервисный центр "Ремонт+" предоставляет систему лояльности и скидок для постоянных клиентов. Вы можете стать одним из них – экономить бюджет и драгоценное время.</p>
+      <p>Для того чтобы закоментировать код HTML необходимо использовать тег <b> &lt!--...--&gt </b> </p>
+      </div>
+      <hr>
+      <div class="table_of_price">
+         <h2>Цены на услуги</h2>
+         <!--<form action="main.js">-->
+         Укажите валюту: <br>
+         <div class="calculate">
+            <input type="radio" name="currency" value="UAH">UAH
+            <input type="radio" name="currency" value="USD">USD
+            <input type="radio" name="currency" value="RUB" checked>RUB
+         </div>
+         </form>
+         <table border = "1">
+            <th>Наименование услуги</th>
+            <th>Цена</th>
+            <tr> <td colspan = "2", align="center", bgcolor="#D3EDF6">Диагностика устройства</td></tr>
+            <tr><td>Глубокая диагностика телефона (в случае согласия на ремонт смартфона)</td> <td class="price" data-value="200">200</td></tr>
+            <tr><td>Диагностика мобильного (в случае отказа от ремонта смартфона)</td> <td class="price" data-value="100">100</td></tr>
+            <tr> <td colspan = "2", align="center", bgcolor="#D3EDF6">Установка программного обеспечения</td></tr>
+            <tr><td>Установка антивирусного программного обеспечения</td> <td class="price" data-value="40">40</td></tr>
+            <tr><td>Установка приложений мультимедиа</td> <td class="price" data-value="30">30</td></tr>
+            <tr><td>Установка социальных сетей</td> <td class="price" data-value="15">15</td></tr>
+            <tr><td>Установка любого приложения (на выбор клиента)</td> <td class="price" data-value="20">20</td></tr>
+            <tr> <td colspan = "2", align="center", bgcolor="#D3EDF6">Ремонт/замена комплектующих</td></tr>
+            <tr><td>Замена/ремонт дисплея телефона</td> <td class="price" data-value="300">300</td></tr>
+            <tr><td>Замена/ задней крышки телефона</td> <td class="price" data-value="200">200</td></tr>
+            <tr><td>Замена батареи мобильного телефона</td> <td class="price" data-value="200">200</td></tr>
+            <tr><td>Замена/ремонт микрофона смартфона</td> <td class="price" data-value="100">100</td></tr>
+            <tr><td>Замена/ремонт полифонического динамика смартфона</td> <td class="price" data-value="100">100</td></tr>
+            <tr><td>Замена разговорного динамика телефона</td> <td class="price" data-value="150">150</td></tr>
+            <tr><td>Ремонт фронтальной камеры телефона</td> <td class="price" data-value="300">300</td></tr>
+            <tr><td>Ремонт основной камеры телефона</td> <td class="price" data-value="200">200</td></tr>
+            <tr><td>Замена/ремонт виброзвонка смартфона</td> <td class="price" data-value="50">50</td></tr>
+            <tr><td>Замена/ремонт датчика приближения телефона</td> <td class="price" data-value="250">250</td></tr>
+            <tr> <td colspan = "2", align="center">Остальные разценки узнавайте у наших менеджеров по телефонам ниже</td></tr>
+         </table>
+      </div>
+      </center>
+      <hr>
+      <h1 align="center">Преимущества ремонта именно у нас:</h1>
+      <p text="14">Сотрудничество с нашим сервисным центром предполагает ряд преимуществ, которые получит клиент, а именно:</p>
+      <div class="numeric_list">
+         <ol>
+            <li>Гарантию на работу сроком от 6 до 12 месяцев в зависимости от бренда и модели телефона (на китайские телефоны гарантия 6 месяцев);</li>
+            <li>Лояльные цены на ремонт смартфонов;</li>
+            <li>Оплата работы после качественного ремонта телефона;</li>
+            <li>Оплата наличным и безналичным способом;</li>
+            <li>Наличие восстребованных оригинальных запчастей на складе;</li>
+            <li>Услуга срочного ремонта телефонов, подразумевающая восстановление гаджета за один рабочий день.</li>
+         </ol>
+      </div>
+      <p><u>А также:</u></p>
+      <div class="mark_list">
+         <ul type="square">
+            <li>Оплата наличным и безналичным способом;</li>
+            <li>Помощь и консультации в настройке хранилищ ("облако") на телефонах IPhone, Xiaomi, Meizu и др.;</li>
+            <li>Регистрация и настройка аккаунтов, установка полезных приложений.</li>
+            <li>Консультации по эксплуатации и ремонту телефона и др.</li>
+         </ul>
+      </div>
+      <hr>
+      <div class="contacts">
+         <center>
+            <h2>Контакты</h2>
+        </center>
+        <p><strong>Адрес: </strong>г. Днепр, пр. Богдана Хмельницкого, 151</p>
+        <p><strong>Телефон: </strong><a href="tel:+380565605656">+38 (056) 560-56-56</a></p>
+        <p><strong>Время работы: </strong>Пн - Пт, с 09.00 до 19.00, Суббота - с 09.00 до 15.00</p>
+        <p><strong>Em@il: </strong><a href="mailto:m@cto.com">m@cto.com</a></p>
+      </div>
+      <hr>
+   </div>
+   <div class="footer">
+   <center>
+        <p>© 2008-2019 Все права защищены.</p>
+    </center>
+   </div>
+</body>
+</html>
